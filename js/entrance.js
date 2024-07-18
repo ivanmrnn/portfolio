@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.1
     };
 
+    //Set the entrance animation depending on what animation was specified in the html
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

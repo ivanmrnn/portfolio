@@ -33,7 +33,7 @@ const skillsData = {
 
 function createSkillHTML(skill, index) {
     return `
-        <div class="skills-container" data-name="${skill.name}" style="left: ${index * 160}px; top: 0;">
+        <div class="skills-container" data-name="${skill.name}">
             <div class="skills-image">
             ${skill.icon}
             </div>
@@ -42,22 +42,61 @@ function createSkillHTML(skill, index) {
     `;
 }
 
+//Calculates the minimum height needed for a container based on the number of skills and their width.
 function setMinimumContainerHeight() {
     const skillsContainer = document.querySelector('.all-skills-container');
     const allSkills = [...skillsData.frontend, ...skillsData.backend, ...skillsData.others];
     const containerWidth = skillsContainer.offsetWidth;
-    const skillWidth = 160; 
+    const skillWidth = document.querySelector('.skills-container').offsetWidth + 16; 
     const skillsPerRow = Math.floor(containerWidth / skillWidth);
     const rows = Math.ceil(allSkills.length / skillsPerRow);
-    const minHeight = rows * 200; 
+    const minHeight = rows * (document.querySelector('.skills-container').offsetHeight + 16);
 
     skillsContainer.style.minHeight = `${minHeight}px`;
 }
 
+//Centers the skills in their container and adjusts the container's height to fit them.
+function centerSkills() {
+    const skillsContainer = document.querySelector('.all-skills-container');
+    const skills = skillsContainer.querySelectorAll('.skills-container');
+
+    if (skills.length > 0) {
+        const containerWidth = skillsContainer.offsetWidth;
+        const skillWidth = document.querySelector('.skills-container').offsetWidth;
+        const skillHeight = document.querySelector('.skills-container').offsetHeight;
+        const gap = 16; // 1rem gap in pixels
+        const totalSkillWidth = skillWidth + gap;
+        const skillsPerRow = Math.floor(containerWidth / totalSkillWidth);
+
+        const rows = [];
+        for (let i = 0; i < skills.length; i += skillsPerRow) {
+            rows.push(Array.from(skills).slice(i, i + skillsPerRow));
+        }
+
+        rows.forEach((row, rowIndex) => {
+            const rowWidth = row.length * totalSkillWidth - gap; 
+            const offsetX = (containerWidth - rowWidth) / 2;
+
+            row.forEach((skill, colIndex) => {
+                const left = offsetX + colIndex * totalSkillWidth;
+                const top = rowIndex * (skillHeight + gap); 
+
+                skill.style.left = `${left}px`;
+                skill.style.top = `${top}px`;
+            });
+        });
+
+        const minHeight = parseInt(skillsContainer.style.minHeight) || 200;
+        const newHeight = Math.max(rows.length * (skillHeight + gap), minHeight);
+        skillsContainer.style.height = `${newHeight}px`;
+    }
+}
+
+//Creates and displays skills in a container
 function renderSkills() {
     const skillsContainer = document.querySelector('.all-skills-container');
     skillsContainer.innerHTML = '';
-    
+
     const allSkills = [...skillsData.frontend, ...skillsData.backend, ...skillsData.others];
     allSkills.forEach((skill, index) => {
         skillsContainer.innerHTML += createSkillHTML(skill, index);
@@ -67,51 +106,19 @@ function renderSkills() {
     setMinimumContainerHeight();
 }
 
-function centerSkills() {
-    const skillsContainer = document.querySelector('.all-skills-container');
-    const skills = skillsContainer.querySelectorAll('.skills-container');
-
-    if (skills.length > 0) {
-        const containerWidth = skillsContainer.offsetWidth;
-        const skillWidth = 160;
-        const skillsPerRow = Math.floor(containerWidth / skillWidth);
-        
-        const rows = [];
-        for (let i = 0; i < skills.length; i += skillsPerRow) {
-            rows.push(Array.from(skills).slice(i, i + skillsPerRow));
-        }
-
-        rows.forEach((row, rowIndex) => {
-            const rowWidth = row.length * skillWidth;
-            const offsetX = (containerWidth - rowWidth) / 2;
-
-            row.forEach((skill, colIndex) => {
-                const left = offsetX + colIndex * skillWidth;
-                const top = rowIndex * 200; 
-
-                skill.style.left = `${left}px`;
-                skill.style.top = `${top}px`;
-            });
-        });
-
-        const minHeight = parseInt(skillsContainer.style.minHeight) || 200;
-        const newHeight = Math.max(rows.length * 200, minHeight);
-        skillsContainer.style.height = `${newHeight}px`;
-    }
-}
-
+//animates the skills by hiding and showing
 function animateSkills(category) {
     const skillsContainer = document.querySelector('.all-skills-container');
     const skills = skillsContainer.querySelectorAll('.skills-container');
-    const targetSkills = category === 'all' 
-      ? [...skillsData.frontend, ...skillsData.backend, ...skillsData.others]
-      : skillsData[category];
+    const targetSkills = category === 'all'
+        ? [...skillsData.frontend, ...skillsData.backend, ...skillsData.others]
+        : skillsData[category];
 
     const visibleSkills = [];
     skills.forEach((skillElement) => {
         const skillName = skillElement.getAttribute('data-name');
         const isVisible = targetSkills.some(skill => skill.name === skillName);
-        
+
         if (isVisible) {
             skillElement.classList.remove('hidden');
             visibleSkills.push(skillElement);
@@ -121,21 +128,24 @@ function animateSkills(category) {
     });
 
     const containerWidth = skillsContainer.offsetWidth;
-    const skillWidth = 160; 
-    const skillsPerRow = Math.floor(containerWidth / skillWidth);
-    
+    const skillWidth = document.querySelector('.skills-container').offsetWidth;
+    const skillHeight = document.querySelector('.skills-container').offsetHeight;
+    const gap = 16; 
+    const totalSkillWidth = skillWidth + gap;
+    const skillsPerRow = Math.floor(containerWidth / totalSkillWidth);
+
     const rows = [];
     for (let i = 0; i < visibleSkills.length; i += skillsPerRow) {
         rows.push(visibleSkills.slice(i, i + skillsPerRow));
     }
 
     rows.forEach((row, rowIndex) => {
-        const rowWidth = row.length * skillWidth;
+        const rowWidth = row.length * totalSkillWidth - gap; 
         const offsetX = (containerWidth - rowWidth) / 2;
 
         row.forEach((skillElement, colIndex) => {
-            const left = offsetX + colIndex * skillWidth;
-            const top = rowIndex * 200; 
+            const left = offsetX + colIndex * totalSkillWidth;
+            const top = rowIndex * (skillHeight + gap); 
 
             skillElement.style.left = `${left}px`;
             skillElement.style.top = `${top}px`;
@@ -143,10 +153,11 @@ function animateSkills(category) {
     });
 
     const minHeight = parseInt(skillsContainer.style.minHeight) || 200;
-    const newHeight = Math.max(rows.length * 200, minHeight);
+    const newHeight = Math.max(rows.length * (skillHeight + gap), minHeight);
     skillsContainer.style.height = `${newHeight}px`;
 }
 
+//display content depending on what tab is pressed
 function showTab(tabIndex) {
     const categories = ['all', 'frontend', 'backend', 'others'];
     animateSkills(categories[tabIndex - 1]);
@@ -171,5 +182,3 @@ window.addEventListener('resize', () => {
     setMinimumContainerHeight();
     centerSkills();
 });
-
-

@@ -6,27 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let growStart = false;
     let growFinish = false;
 
-    // Function to hide the scroll-down element
     function hideScrollDown() {
         scrollDown.classList.add('hidden');
     }
 
-    // Function to shrink the scroll-line element
     function shrinkScrollLine() {
         scrollLine.classList.add('shrink');
     }
 
-    // Function to fade out the scroll-text element
     function fadeOutScrollText() {
         scrollText.classList.add('fade-out');
     }
 
-    // Function to show the scroll-down element
     function showScrollDown() {
         scrollDown.classList.remove('hidden');
     }
 
-    // Function to handle the initial scroll position check
+    //If the user is at the start of the screen when the page is loaded then display the animation else do not.
     function checkInitialScroll() {
         if (window.scrollY > 0) {
             hasScrolled = true;
@@ -43,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Handle animation end event to fade out text after line shrinks
+    // Fade out text after line shrinks
     scrollLine.addEventListener('animationend', (event) => {
         if (event.animationName === 'shrinkLine') {
             fadeOutScrollText();
@@ -52,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkInitialScroll();
 
-    // Listen for scroll events
+    /* If the user scrolled before the scroll animation starts then don't show it. If the user scrolled while the animation is taking place then 
+    finish the animation and shrink it. If the animation finished then the user scrolled then shrink it. */
     window.addEventListener('scroll', () => {
         if (!hasScrolled && !growStart) {
             hasScrolled = true;
