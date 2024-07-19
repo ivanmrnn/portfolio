@@ -557,8 +557,16 @@ button, a {
     color: var(--black);
 }
 
+.projects-website-button:hover svg path, .projects-documentation-button:hover svg path{
+    fill: var(--black);
+}
+
 .projects-code-button:hover h4 {
     color: var(--green);
+}
+
+.projects-code-button:hover svg path {
+    fill: var(--green);
 }
 
 .projects-button:active {
