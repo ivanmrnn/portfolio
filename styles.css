@@ -294,7 +294,7 @@ button, a {
     transition: box-shadow 0.3s ease-in-out; /
 }
 
-.profile-image:hover {
+.profile-image:hover, .profile-image:active {
     box-shadow: unset;
 }
 
@@ -332,6 +332,7 @@ button, a {
     padding: 1rem;
     background: var(--green);
     border: 5px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
     cursor: pointer;
     transition: background 0.3s ease; 
     animation-delay: 1.4s;
@@ -476,14 +477,14 @@ button, a {
 
 .projects-container {
     width: 570px;
-  }
+}
   
-  .projects-image {
+.projects-image {
     width: 100%;
     height: auto;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
-  }
+}
 
 
 .projects-description {
@@ -496,11 +497,15 @@ button, a {
     background: var(--black);
 }
 
+.projects-actions {
+    justify-content: space-between;
+}
+
 .projects-skill-list, .projects-actions {
     margin-top: 8px;
 }
 
-.no-view-text {
+.no-view-text, .projects-icons {
     display: none;
 }
 
@@ -520,6 +525,7 @@ button, a {
 .projects-button {
     border-radius: 8px;
     border: 5px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
     cursor: pointer;
     transition: background 0.3s ease; 
 }
@@ -789,12 +795,15 @@ button, a {
     .about {
         flex-direction: column;
         justify-content: center;
-        margin: 2rem 0;
     }
 
     .profile {
         height: unset;
         margin-bottom: 1rem;
+    }
+
+    .profile-image {
+        height: 330px;
     }
 
     .self-description {
@@ -825,7 +834,7 @@ button, a {
         display: none;
     }
 
-    .no-view-text {
+    .no-view-text, .projects-icons {
         display: block;
     }
 
@@ -844,6 +853,11 @@ button, a {
     .skills-container {
         height: 120px; 
     }  
+
+
+    .projects-button h4 {
+        font-size: 18px;
+    }
     
 }
 
@@ -862,8 +876,19 @@ button, a {
     }
 
     .profile-image {
-        height: 330px;
+        height: 300px;
     }
+
+    .resume-button svg{
+        width: 18px;
+        height: 18px;
+    }
+
+    .projects-button h4 {
+        font-size: 15px;
+    }
+
+
     
 }
 
@@ -881,7 +906,7 @@ button, a {
         font-size: 14px;
     }
     
-    h4 {
+    h4, .projects-button h4 {
         font-size: 12px;
     }
 
@@ -894,11 +919,28 @@ button, a {
     }
 
     .profile-image {
-        height: 260px;
+        height: 220px;
+        box-shadow: -10px 10px 0px var(--black);
+        
+    }
+
+    .greetings {
+        line-height: 1;
+        padding-right: 6px;
+        border-right: 4px solid var(--black);
     }
 
     .self-description {
         width: 350px;
+    }
+
+    .resume-button {
+        gap: 8px;
+    }
+
+    .resume-button svg{
+        width: 12px;
+        height: 12px;
     }
 
     .experience-skill-list, .projects-skill-list {
@@ -925,7 +967,7 @@ button, a {
         display: block;
     }
 
-    .no-view-text {
+    .no-view-text, .projects-icons {
         display: none;
     }
 
@@ -937,8 +979,13 @@ button, a {
         display: none;
     }
 
-    .no-view-text {
+    .no-view-text, .projects-icons {
         display: block;
+    }
+
+    .projects-icons {
+        height: 14px;
+        width: 14px;
     }
 
 }
@@ -946,6 +993,27 @@ button, a {
 @media (max-width: 414px) {
     .self-description {
         width: 100%;
+    }
+
+    .projects-button h4 {
+        font-size: 10px;
+    }
+
+    .projects-icons {
+        height: 12px;
+        width: 12px;
+    }
+}
+
+
+@media (max-width: 378px) {
+
+    .projects-button h4 {
+        font-size: 12px;
+    }
+
+    .projects-icons {
+        display: none;
     }
 }
 
