@@ -1,0 +1,13 @@
+site_name: Portfolio - Frederic Ivan Maranan
+
+nav:
+  - Overview: index.md
+  - Design: design.md
+  - Features: features.md
+  - Attributions: attributions.md
+
+theme: readthedocs
+
+markdown_extensions:
+  - admonition
+  - attr_list

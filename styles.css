@@ -10,41 +10,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins, Arial;
-    font-weight: 400;
+}
+
+body {
+    font-family: Poppins, sans-serif;
     color: var(--black);
-    line-height: 1.5;
 }
 
-h1 {
-    font-size: 40px;
-}
-
-h2 {
-    font-size: 32px;
-}
-
-h3 {
-    font-size: 28px;
-}
-
-h4 {
-    font-size: 20px;
-}
-
-
-.bold {
-    font-weight: bold;
-}
-
-.medium {
-    font-weight: 600;
-}
-
-
-button, a {
-    all: unset
-}
+/* Display */
 
 .flex{
     display: flex;
@@ -62,9 +35,48 @@ button, a {
     justify-content: center;
 }
 
+.space-between{
+    justify-content: space-between;
+}
+
 .align-center{
     align-items: center;
 } 
+
+/* Text */
+
+
+h1, .text-large {
+    font-size: 32px;
+}
+
+h2, .text-semi-large {
+    font-size: 28px;
+}
+
+h3, .text-medium {
+    font-size: 22px;
+}
+
+
+
+.bold {
+    font-weight: bold;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Gap */
 
 .big-gap {
     gap: 2rem;
@@ -78,15 +90,54 @@ button, a {
     gap: 8px;
 }
 
+/* Radius */
+
 .radius {
-    border-radius: 8px;
+    border-radius: 16px;
 }
 
 .small-radius {
     border-radius: 8px;
 }
 
-/* GENERAL ANIMATIONS */
+.big-radius {
+    border-radius: 32px;
+}
+
+/* Button, a */
+
+button, a {
+    all: unset
+}
+
+/* Cursor */
+
+.pointer {
+    cursor: pointer;
+}
+
+/* Others */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+}
+
+.disabled-wrapper {
+    cursor: not-allowed; 
+}
+
+.disabled {
+    opacity: 0.5; 
+    pointer-events: none; 
+}
+
+/* General animations */
 
 @keyframes zoomIn {
     0% {
@@ -110,17 +161,6 @@ button, a {
     }
 }
 
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes fadeInRight {
     0% {
         opacity: 0;
@@ -132,7 +172,7 @@ button, a {
     }
 }
 
-/* ANIMATION CLASSES */
+/* Animation classes */
 
 .zoom-in-fast {
     animation: zoomIn 0.5s ease-in-out forwards;
@@ -146,7 +186,6 @@ button, a {
     animation: fadeInDown 1s ease-in-out forwards;
 }
 
-
 .fade-in-right {
     animation: fadeInRight 1.5s ease-in-out forwards;
 }
@@ -155,16 +194,7 @@ button, a {
     opacity: 0; 
 }
 
-/* PORTFOLIO */
-
-.portfolio-container {
-    width: 100%;
-}
-
-.portfolio {
-    width: 1200px;
-}
-
+/* Scroll animation */
 
 .scroll-down {
     position: fixed;
@@ -190,7 +220,7 @@ button, a {
     animation-delay: 4.5s; 
 }
 
-.scroll-text h4 {
+.scroll-text {
     color: #616162;
 }
 
@@ -246,7 +276,17 @@ button, a {
     animation: fadeOut 0.4s ease-in forwards;
 }
 
+/* Portfolio */
 
+.portfolio-container {
+    width: 100%;
+}
+
+.portfolio {
+    width: 1000px;
+}
+
+/* Portfolio Divider */
 
 .portfolio-divider {
     height: 5vh;
@@ -277,21 +317,20 @@ button, a {
 /* ABOUT */
 
 .about {
-    justify-content: space-between;
     height: 100vh;
     width: 100%
 }
 
 .profile{
-    height: 450px;
+    height: 400px;
     padding-left: 1rem;
 }
 
 .profile-image {
-    height: 350px;
+    height: 300px;
     box-shadow: -1rem 1rem 0px var(--black);
     border: 1px solid var(--black);
-    transition: box-shadow 0.3s ease-in-out; /
+    transition: box-shadow 0.3s ease-in-out; 
 }
 
 .profile-image:hover, .profile-image:active {
@@ -299,8 +338,7 @@ button, a {
 }
 
 .self-description {
-    height: 450px;
-    width: 800px;
+    width: 650px;
     text-align: justify
 }
 
@@ -310,13 +348,14 @@ button, a {
 }
 
 .greetings {
+    display: inline-block;
     line-height: 1.2;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
     padding-right: 10px;
     border-right: 8px solid var(--black);
-    animation: typing 1.5s steps(15), cursor .6s step-end infinite alternate;
+    animation: typing 1.3s steps(13), cursor .6s step-end infinite alternate;
 }
 
 @keyframes cursor {
@@ -329,13 +368,14 @@ button, a {
 
 
 .resume-button {
-    padding: 1rem;
+    padding: 12px 1rem;
+    color: white;
     background: var(--green);
     border: 5px solid transparent;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
-    cursor: pointer;
     transition: background 0.3s ease; 
     animation-delay: 1.4s;
+    transition: color 0.3s ease; 
 }
 
 .resume-button:hover {
@@ -343,16 +383,6 @@ button, a {
     background: unset;
     box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
     border: 5px solid var(--green);
-}
-
-.resume-button h3 {
-    text-transform: uppercase;
-    color: white;
-    transition: color 0.3s ease; 
-}
-
-.resume-button:hover h3{
-    color: var(--green);
 }
 
 .resume-button svg path {
@@ -369,86 +399,39 @@ button, a {
 
 /* SKILLS */
 
-.skills {
+.skills, .all-skills-container {
     width: 100%;
-}
-
-
-.skills-tab {
-    cursor: pointer;
-}
-
-.skills-tab h4 {
-    text-transform: uppercase;
-    color: var(--pink);
 }
 
 .all-skills-container {
-    align-items: flex-start;
-    width: 100%;
-    min-height: 180px;
-    position: relative;
-    padding: 20px;
+    justify-content: space-evenly;
 }
 
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 180px; 
-    width: 140px; 
-    padding: 1rem;
-    border: 3px solid #d3d3d3;
-    border-radius: 8px;
-    position: absolute;
-    transition: all 0.5s ease;
-    opacity: 1;
-    transform: scale(1);
-}
-
-.skills-container.hidden {
-    opacity: 0;
-    transform: scale(0.5);
-}
-
-
-
-
-.skills-image {
-    width: 60px;
-    height: 60px;
-}
-
-.skills-name {
-    font-weight: bold;
-}
 /* EXPERIENCE */
 
-.experience {
+.experience, .experience-container {
     width: 100%;
 }
 
-.experience-container {
-    width: 100%;
-}
-
-.experience-container h4{
+.experience-container p{
     text-align: justify;
 }
 
 .experience-company {
     color: var(--pink);
     transition: color 0.5s ease;
-    cursor: pointer;
 }
 
 .experience-company:hover {
     color: var(--green);
 }
 
-.experience-skill-list {
-    margin-top: 8px;
+.experience-company svg path {
+    transition: fill 0.3s ease; 
+}
+
+.experience-company:hover svg path {
+    fill: var(--green);
 }
 
 .experience-skill {
@@ -456,16 +439,12 @@ button, a {
     background: var(--black);
 }
 
-.experience-skill p {
+.experience-skill {
     color: white;
     transition: color 0.5s ease;
 }
 
-.uadmin {
-    cursor: pointer;
-}
-
-.uadmin:hover p{
+.uadmin:hover{
     color: var(--green);
 }
 
@@ -476,93 +455,70 @@ button, a {
 /* PROJECTS */
 
 .projects-container {
-    width: 570px;
+    width: 470px;
 }
   
 .projects-image {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 300px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
 }
 
-
-.projects-description {
-    width: 100%;
+.projects-description, .projects-description p  {
+    flex-grow: 1;
 }
 
 .projects-skill {
+    color: white;
+    height: fit-content;
     width: fit-content;
     padding: 8px 1rem;
     background: var(--black);
 }
 
-.projects-actions {
-    justify-content: space-between;
+.projects-website-button, .projects-code-button, .projects-documentation-button {
+    width: fit-content;
+    padding: 10px 5px;
 }
 
-.projects-skill-list, .projects-actions {
-    margin-top: 8px;
+.projects-website-button, .projects-documentation-button {
+    background: var(--black);
+}
+
+.projects-code-button {
+    background: var(--green);
+}
+
+.projects-button {
+    color: white;
+    border-radius: 8px;
+    border: 5px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+    transition: color 0.3s ease;
+    transition: background 0.3s ease; 
 }
 
 .no-view-text, .projects-icons {
     display: none;
 }
 
-
-.projects-website-button, .projects-documentation-button {
-    width: fit-content;
-    padding: 10px;
-    background: var(--black);
-}
-
-.projects-code-button {
-    width: fit-content;
-    padding: 10px;
-    background: var(--green);
-}
-
-.projects-button {
-    border-radius: 8px;
-    border: 5px solid transparent;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
-    cursor: pointer;
-    transition: background 0.3s ease; 
-}
-
-.projects-button h4 {
-    transition: color 0.3s ease; 
-}
-
-.projects-button h4, .projects-skill p {
-    color: white;
-    font-weight: bold;
+.projects-website-button:hover, .projects-code-button:hover, .projects-documentation-button:hover {
+    background: unset;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
 }
 
 .projects-website-button:hover, .projects-documentation-button:hover {
     color: var(--black);
-    background: unset;
-    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
     border: 5px solid var(--black);
 }
 
 .projects-code-button:hover {
     color: var(--green);
-    background: unset;
-    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
     border: 5px solid var(--green);
-}
-
-.projects-website-button:hover h4, .projects-documentation-button:hover h4{
-    color: var(--black);
 }
 
 .projects-website-button:hover svg path, .projects-documentation-button:hover svg path{
     fill: var(--black);
-}
-
-.projects-code-button:hover h4 {
-    color: var(--green);
 }
 
 .projects-code-button:hover svg path {
@@ -573,8 +529,15 @@ button, a {
     transform: scale(0.85);
 }
 
-
 /* FOOTER */
+
+.footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    background-color: var(--black);
+}
 
 .social-links {
     position: fixed;
@@ -584,19 +547,14 @@ button, a {
 }
 
 .social-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     z-index: 0;
-    margin-left: 10px;
     height: 72px;
     width: 72px;
     border-radius: 50px;
     border: none;
     background: white;
     transition: 0.1s;
-    cursor: pointer;
     overflow: visible;
 }
 
@@ -613,6 +571,7 @@ button, a {
     transform: scale(0.85);
 }
 
+/* Sets the social media button effect to 0px and positioned behind the button */
 .social-media::before {
     content: "";
     position: absolute;
@@ -633,19 +592,17 @@ button, a {
     background: var(--black);
 }
 
-.social-media.linkedin::before {
-    background: rgb(10, 102, 194);
-}
-
 .social-media.gmail::before {
     background: #ff4343;
 }
 
+/* Expands the circle around the social media button */
 .social-media:hover::before {
-    width: 78px;
-    height: 78px;
+    width: 70px;
+    height: 70px;
 }
 
+/* Displays the tooltip sliding from behind to the right of the button */
 .social-media::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -671,10 +628,6 @@ button, a {
     color: var(--black);
 }
 
-.social-media.linkedin::after {
-    color: rgb(10, 102, 194);
-}
-
 .social-media.gmail::after {
     color: #ff4343;
 }
@@ -694,27 +647,13 @@ button, a {
     animation: slideFromBehind 0.5s forwards ease;
 }
 
-.footer {
-    margin-top: 3rem;
-    padding: 2rem;
-    background-color: var(--black);
-}
-
-.footer p {
-    color: white;
-}
-
-.iconify-link {
-    cursor: pointer;
-}
-
 .iconify-link:hover {
     color: var(--green);
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 1800px) {
+@media (max-width: 1600px) {
 
     .social-media:hover::after {
         animation: unset;
@@ -722,7 +661,7 @@ button, a {
 
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1400px) {
 
     .scroll-down {
         display: none;
@@ -771,7 +710,7 @@ button, a {
     
 }
 
-@media (max-width: 1264px) {
+@media (max-width: 1064px) {
 
     .portfolio {
         width: 100%;
@@ -780,25 +719,19 @@ button, a {
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1036px) {
 
     .projects {
         justify-content: center;
-    }
+    }    
 
-    .skills-container {
-        height: 160px; 
-        width: 120px; 
+    .projects-image {
+        height: auto;
     }
-
-    .skills-container h4{
-        font-size: 18px;
-    }
-    
 
 }
 
-@media (max-width: 866px) {
+@media (max-width: 786px) {
 
     .about {
         flex-direction: column;
@@ -810,33 +743,23 @@ button, a {
         margin-bottom: 1rem;
     }
 
-    .profile-image {
-        height: 330px;
-    }
-
     .self-description {
-        height: unset;
         width: 500px;
         align-items: center;
-    }
-
-    .skills-container {
-        height: 140px; 
-        width: 100px;
-    }
-
-    .skills-container h4{
-        font-size: 16px;
-    }
-
-    .skills-image, .skills-image svg {
-        width: 40px;
-        height: 40px;
     }
     
 }
 
-@media (max-width: 634px) {
+@media (max-width: 568px) {
+
+    .self-description {
+        width: 100%;
+    }
+    
+}
+
+
+@media (max-width: 516px) {
 
     .view-text {
         display: none;
@@ -848,78 +771,17 @@ button, a {
 
 }
 
-@media (max-width: 568px) {
-    
-    h3 {
-        font-size: 26px;
-    }
-
-    .self-description {
-        width: 100%;
-    }
-
-    .skills-container {
-        height: 120px; 
-    }  
-
-
-    .projects-button h4 {
-        font-size: 18px;
-    }
-    
-}
-
-@media (max-width: 532px) {
-    
-    h1 {
-        font-size: 36px;
-    }
-    
-    h2 {
-        font-size: 28px;
-    }
-
-    h3 {
+@media (max-width: 496px) {
+    h2, .text-semi-large {
         font-size: 22px;
     }
 
-    .profile-image {
-        height: 300px;
+    h3, .text-medium {
+        font-size: 18px;
     }
 
-    .resume-button svg{
-        width: 18px;
-        height: 18px;
-    }
-
-    .projects-button h4 {
-        font-size: 15px;
-    }
-
-
-    
-}
-
-@media (max-width: 496px) {
-
-    h1 {
-        font-size: 24px;
-    }
-    
-    h2 {
-        font-size: 16px;
-    }
-    
-    h3 {
+    p, span {
         font-size: 14px;
-    }
-    
-    h4, .projects-button h4 {
-        font-size: 12px;
-    }
-
-    p {
-        font-size: 10px;
     }
 
     .portfolio-divider {
@@ -929,46 +791,10 @@ button, a {
     .profile-image {
         height: 220px;
         box-shadow: -10px 10px 0px var(--black);
-        
-    }
-
-    .greetings {
-        line-height: 1;
-        padding-right: 6px;
-        border-right: 4px solid var(--black);
     }
 
     .self-description {
         width: 350px;
-    }
-
-    .resume-button {
-        gap: 8px;
-    }
-
-    .resume-button svg{
-        width: 12px;
-        height: 12px;
-    }
-
-    .experience-skill-list, .projects-skill-list {
-        margin-top: unset;
-        gap: 8px;
-    }
-
-
-    .skills-container {
-        height: 80px; 
-        width: 80px;
-    }
-
-    .skills-container h4{
-        font-size: 12px;
-    }
-
-    .skills-image, .skills-image svg {
-        width: 25px;
-        height: 25px;
     }
 
     .view-text {
@@ -981,7 +807,7 @@ button, a {
 
 }
 
-@media (max-width: 448px) {
+@media (max-width: 466px) {
 
     .view-text {
         display: none;
@@ -1003,8 +829,8 @@ button, a {
         width: 100%;
     }
 
-    .projects-button h4 {
-        font-size: 10px;
+    .projects-button span{
+        font-size: 12px;
     }
 
     .projects-icons {
@@ -1014,15 +840,17 @@ button, a {
 }
 
 
-@media (max-width: 378px) {
+@media (max-width: 386px) {
 
-    .projects-button h4 {
-        font-size: 12px;
+    .text-semi-large {
+        font-size: 18px;
     }
 
-    .projects-icons {
-        display: none;
+    .projects-button span {
+        font-size: 10px;
     }
+
+
 }
 
 @media (max-width: 350px) {
@@ -1031,13 +859,8 @@ button, a {
         padding: 10px 5px;
     }
 
-    .skills-container {
-        height: 70px; 
-        width: 70px;
-    }
-
-    .skills-container h4{
-        font-size: 10px;
+    .projects-icons {
+        display: none;
     }
 
 }
