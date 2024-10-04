@@ -102,8 +102,6 @@ Company names and lesser-known technologies are hyperlinked for viewers who may 
 
 ![Projects Section](images/projects-section.png)
 
-Actions like "View Website," "View Code," and "View Documentation" can be streamlined by using icons or omitting the "View" prefix to save space. However, it's crucial that these actions remain descriptive to avoid confusion. For example, Removing "View" from "View Code" leaves just "Code".  The viewer might misunderstood that the "Code" button links to something like an online compiler so it should be clearly indicated that it links to the code repository which is why I didnt remove the word "View".
-
 ### Footer 
 
 ![Footer Section](images/footer-section.png)
