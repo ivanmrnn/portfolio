@@ -798,12 +798,16 @@ button, a {
         gap: 4rem;
     }
 
-    .projects-restaurant-container {
+    .projects-cupmatch-container {
         flex-direction: column;
     }
 
-    .projects-portfolio-container {
+    .projects-restaurant-container {
         flex-direction: column-reverse;
+    }
+
+    .projects-portfolio-container {
+        flex-direction: column;
     }
 
     .projects-image-container {
