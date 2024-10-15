@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /resume.pdf
-Disallow: /figma/
-Allow: /
+Disallow: /
+Allow: /index.html
+Allow: /styles.css

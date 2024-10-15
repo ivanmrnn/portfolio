@@ -29,6 +29,8 @@ I used **VS Code**, **Figma**, **MkDocs**, and **ReadtheDocs** for their simplic
 
 **Cloudflare Pages** was used because of its free tier and having better security than Github Pages 
 
+I also integrated Cloudflare Analytics and Google Search console to track human and search traffic.
+
 ## How To Use
 
 The website portfolio can be accessed at <a href="https://ivanmaranan.pages.dev/" target="_blank" rel="noopener noreferrer">ivanmaranan.pages.dev</a>.

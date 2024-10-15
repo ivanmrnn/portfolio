@@ -863,3 +863,35 @@ button, a {
     }
 
 }
+
+@media (max-height: 570px) {
+
+    h2, .text-semi-large {
+        font-size: 16px;
+    }
+
+    h3, .text-medium {
+        font-size: 14px;
+    }
+
+    p, span {
+        font-size: 12px;
+    }
+
+    .about{
+        gap: 1rem;
+    }
+
+    .profile-image {
+        height: 200px;
+    }
+
+}
+
+@media (max-height: 460px) {
+
+    .about {
+        height: 460px;
+        padding: 1rem;
+    }
+}
