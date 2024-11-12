@@ -32,9 +32,9 @@
                     <!-- <span class="text-semi-large bold capitalize">Aspiring Software Developer</span> -->
                     <p >I’m a fresh graduate passionate in software development, seeking an entry-level position to kick-start my career. 
                         I'm driven by a desire to learn and grow while creating efficient and user-friendly software solutions.</p>
-                    <a href="Maranan-Resume.pdf" target="_blank">
+                    <a href="Maranan, Frederic Ivan M. - Resume.pdf" target="_blank">
                         <button class="resume-button flex align-center justify-center small-gap small-radius pointer" animation="fade-in-down">
-                            <span class=" bold uppercase">RESUME</span>
+                            <span class="bold uppercase">RESUME</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20"><path fill="white" d="M17 17H3V3h5V1H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5h-2z"/><path fill="white" d="m11 1l3.3 3.3L8.6 10l1.4 1.4l5.7-5.7L19 9V1z"/></svg>
                         </button>
                     </a> 
@@ -307,153 +307,9 @@
         <p>Icons by  <a class="iconify-link pointer" href="https://iconify.design/" target="_blank" rel="noopener noreferrer">Iconify</a></p>
     </footer>
 
-    <!-- Entrances Animation -->
-    <script>
-        //ENTRANCE SCRIPT
-        // Wait for the DOM content to fully load before executing the script
-        document.addEventListener('DOMContentLoaded', () => {
-
-        // Select all elements in the DOM that have the 'animation' attribute
-        const elementsToAnimate = document.querySelectorAll('[animation]');
-
-        // Define the callback function for the IntersectionObserver, which handles element visibility
-        const observerCallback = (entries, observer) => {
-
-            // Loop through each element that is being observed
-            entries.forEach(entry => {
-
-                // If the element is visible
-                if (entry.isIntersecting) {
-
-                    // Get the value of the 'animation' attribute from the element
-                    const animationClass = entry.target.getAttribute('animation');
-
-                    // Add the animation class to the element
-                    entry.target.classList.add(animationClass);
-
-                    // Stop observing the element after the animation is triggered
-                    observer.unobserve(entry.target);
-                }
-            });
-        };
-
-        // Create the observer that watches when elements become visible
-        const observer = new IntersectionObserver(observerCallback);
-
-        // Go through all elements with the 'animation' attribute
-        elementsToAnimate.forEach(element => {
-
-            // Observe each element to trigger animations when they appear
-            observer.observe(element);
-        });
-
-        });
-
-
-        //PROFILE BORDER SCRIPT
-
-
-        const profileImage = document.querySelector('.profile-image');
-        const colors = ['black', 'pink', 'green'];
-        let currentColorIndex = 0;
-
-        //Change color of border everytime it is hovered and unhovered.
-        function changeColor() {
-            if (window.innerWidth > 496) {
-                profileImage.style.boxShadow = `-1rem 1rem 0px var(--${colors[currentColorIndex]})`;
-            } else {
-                profileImage.style.boxShadow = `-10px 10px 0px var(--${colors[currentColorIndex]})`;
-            }
-            profileImage.style.borderColor = `var(--${colors[currentColorIndex]})`;
-            currentColorIndex = (currentColorIndex + 1) % colors.length;
-        }
-
-
-        profileImage.addEventListener('mouseenter', () => {
-            profileImage.style.boxShadow = 'unset';
-        });
-
-        profileImage.addEventListener('mouseleave', changeColor);
-
-        profileImage.addEventListener('click', () => {
-            profileImage.style.boxShadow = 'unset';
-            changeColor();
-        });
-
-        changeColor();
-
-
-        //SCROLL TIP SCRIPT
-
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const scrollDown = document.querySelector('.scroll-down');
-            const scrollLine = document.querySelector('.scroll-line');
-            const scrollText = document.querySelector('.scroll-text');
-            let hasScrolled = false;
-            let growStart = false;
-            let growFinish = false;
-
-            function hideScrollDown() {
-                scrollDown.classList.add('hidden');
-            }
-
-            function shrinkScrollLine() {
-                scrollLine.classList.add('shrink');
-            }
-
-            function fadeOutScrollText() {
-                scrollText.classList.add('fade-out');
-            }
-
-            function showScrollDown() {
-                scrollDown.classList.remove('hidden');
-            }
-
-            //If the user is at the start of the screen when the page is loaded then display the animation else do not.
-            function checkInitialScroll() {
-                if (window.scrollY > 0) {
-                    hasScrolled = true;
-                    hideScrollDown();
-                } else {
-                    showScrollDown();
-                    setTimeout(() => {
-                        growStart = true;
-                    }, 2500);
-
-                    setTimeout(() => {
-                        growFinish = true;
-                    }, 4500);
-                }
-            }
-
-            // Fade out text after line shrinks
-            scrollLine.addEventListener('animationend', (event) => {
-                if (event.animationName === 'shrinkLine') {
-                    fadeOutScrollText();
-                }
-            });
-
-            checkInitialScroll();
-
-            /* If the user scrolled before the scroll animation starts then don't show it. If the user scrolled while the animation is taking place then 
-            finish the animation and shrink it. If the animation finished then the user scrolled then shrink it. */
-            window.addEventListener('scroll', () => {
-                if (!hasScrolled && !growStart) {
-                    hasScrolled = true;
-                    hideScrollDown();
-                } else if (!hasScrolled && growStart && !growFinish) {
-                    showScrollDown();
-                    setTimeout(() => {
-                        shrinkScrollLine();
-                    }, 2000);
-                } else if (!hasScrolled && growStart && growFinish) {
-                    shrinkScrollLine();
-                }
-            });
-        });
-
-    </script>
+    <script src="js/entrance.js"></script>
+    <script src="js/profile-border.js"></script>
+    <script src="js/scroll-tip.js"></script>
     
 </body>
 

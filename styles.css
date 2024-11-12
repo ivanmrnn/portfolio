@@ -722,15 +722,6 @@ button, a {
 
 }
 
-@media (max-width: 925px) {
-
-    .projects-actions {
-        flex-direction: column;
-        
-    }    
-
-}
-
 @media (max-width: 786px) {
 
     .about {
@@ -750,7 +741,7 @@ button, a {
     
 }
 
-@media (max-width: 680px) {
+@media (max-width: 690px) {
 
     .projects-image {
         width: 200px;
@@ -766,17 +757,7 @@ button, a {
 
 }
 
-@media (max-width: 568px) {
-
-    .self-description {
-        width: 100%;
-    }
-    
-}
-
-
-
-@media (max-width: 590px) {
+@media (max-width: 610px) {
     h2, .text-semi-large {
         font-size: 22px;
     }
@@ -789,9 +770,17 @@ button, a {
         font-size: 14px;
     }
 
+    .projects-skill {
+        padding: 6px 14px;
+    }
+
 }
 
-@media (max-width: 557px) {
+@media (max-width: 590px) {
+
+    .self-description {
+        width: 100%;
+    }
 
     .projects {
         text-align: center;
@@ -833,6 +822,23 @@ button, a {
 }
 
 @media (max-width: 496px) {
+
+    h2, .text-semi-large {
+        font-size: 20px;
+    }
+
+    h3, .text-medium {
+        font-size: 16px;
+    }
+
+    p, span {
+        font-size: 12px;
+    }
+
+    .projects-skill {
+        padding: 4px 12px;
+    }
+
     .portfolio-divider {
         margin: 2rem 0;
     }
@@ -845,6 +851,7 @@ button, a {
     .self-description {
         width: 350px;
     }
+
 }
 
 
@@ -852,6 +859,7 @@ button, a {
     .self-description {
         width: 100%;
     }
+
 
 }
 
