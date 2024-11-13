@@ -449,9 +449,6 @@ button, a {
 .experience-skill {
     padding: 8px 1rem;
     background: var(--black);
-}
-
-.experience-skill {
     color: white;
     transition: color 0.5s ease;
 }
@@ -758,6 +755,11 @@ button, a {
 }
 
 @media (max-width: 610px) {
+
+    h1, .text-large {
+        font-size: 26px;
+    }
+    
     h2, .text-semi-large {
         font-size: 22px;
     }
@@ -772,6 +774,36 @@ button, a {
 
     .projects-skill {
         padding: 6px 14px;
+    }
+
+    .projects-icons-live-website {
+        height: 16px;
+        width: 16px;
+    }
+
+    .projects-icons-codes {
+        height: 24px;
+        width: 24px;
+    }
+
+    .projects-icons-documentation {
+        height: 20px;
+        width: 20px;
+    }
+
+    .social-media svg {
+        height: 32px;
+        width: 32px;
+    }
+
+    .footer {
+        margin-top: 2rem;
+        padding: 1rem;
+        gap: 8px;
+    }
+
+    .social-links {
+        margin-bottom: unset;
     }
 
 }
@@ -823,6 +855,10 @@ button, a {
 
 @media (max-width: 496px) {
 
+    h1, .text-large {
+        font-size: 24px;
+    }
+
     h2, .text-semi-large {
         font-size: 20px;
     }
@@ -836,6 +872,30 @@ button, a {
     }
 
     .projects-skill {
+        padding: 6px 14px;
+    }
+
+    .social-media svg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .projects-icons-live-website {
+        height: 14px;
+        width: 14px;
+    }
+
+    .projects-icons-codes {
+        height: 22px;
+        width: 22px;
+    }
+
+    .projects-icons-documentation {
+        height: 18px;
+        width: 18px;
+    }
+
+    .projects-skill, .experience-skill {
         padding: 4px 12px;
     }
 
@@ -874,20 +934,54 @@ button, a {
 
 @media (max-height: 570px) {
 
+    h1, .text-large {
+        font-size: 26px;
+    }
+    
     h2, .text-semi-large {
-        font-size: 16px;
+        font-size: 22px;
     }
 
     h3, .text-medium {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     p, span {
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    .about{
-        gap: 1rem;
+    .projects-skill {
+        padding: 6px 14px;
+    }
+
+    .projects-icons-live-website {
+        height: 16px;
+        width: 16px;
+    }
+
+    .projects-icons-codes {
+        height: 24px;
+        width: 24px;
+    }
+
+    .projects-icons-documentation {
+        height: 20px;
+        width: 20px;
+    }
+
+    .social-media svg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .footer {
+        margin-top: 2rem;
+        padding: 1rem;
+        gap: 8px;
+    }
+
+    .social-links {
+        margin-bottom: unset;
     }
 
     .profile-image {
