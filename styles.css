@@ -735,6 +735,16 @@ button, a {
         width: 500px;
         align-items: center;
     }
+
+    .all-skills-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .skill-category {
+        text-align: center;
+    }
     
 }
 
